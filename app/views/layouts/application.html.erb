@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MarketplaceApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'bootstrap.css', :media => 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/fc6d352727.js"></script>
+    <%= javascript_include_tag 'jssor.slider-24.1.5.min.js', 'data-turbolinks-track' => true %>
+  </head>
+
+  <style type="text/css">
+
+  body{
+    background-color: #eaebed;
+  }
+
+nav{
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+ .navbar-nav > li > a,
+ .navbar-nav > li > a:focus {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+
+    background-color: #f92020;
+    transition: background-color 1s ease;
+    color: white;
+    border-bottom: 5px solid #f92020;
+}
+
+.navcolor{
+    background-color: #e20d0d;
+}
+
+.navbar .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.postadnavbtn{
+    background: rgba(235,235,3,1);
+background: -moz-linear-gradient(left, rgba(235,235,3,1) 0%, rgba(255,206,10,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(235,235,3,1)), color-stop(100%, rgba(255,206,10,1)));
+background: -webkit-linear-gradient(left, rgba(235,235,3,1) 0%, rgba(255,206,10,1) 100%);
+background: -o-linear-gradient(left, rgba(235,235,3,1) 0%, rgba(255,206,10,1) 100%);
+background: -ms-linear-gradient(left, rgba(235,235,3,1) 0%, rgba(255,206,10,1) 100%);
+background: linear-gradient(to right, rgba(235,235,3,1) 0%, rgba(255,206,10,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebeb03', endColorstr='#ffce0a', GradientType=1 );
+
+color: white;
+font-weight: 700;
+border: 2px dashed white;
+font-size: 18px;
+}
+
+  </style>
+
+  <body>
+
+  	 <!-- Navigation -->
+    <nav class="navbar navcolor navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="font-family: 'Pacifico', cursive; color: white; font-size: 25px;">Market Circle</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if signed_in? %>
+        <li class="active"><a href="#!" style="color: white; font-weight: 700;"><%= current_user.firstname %> <span class="sr-only">(current)</span></a></li>
+        <% else %>
+        <li><%= link_to "Sign In", new_user_session_path %>  </li>
+        <% end %>
+        
+      </ul>
+      <%= form_tag search_path , method: :get, :class => "navbar-form navbar-right" do %>
+        <div class="form-group">
+           <%= text_field_tag :q, nil , :placeholder => "Search for items", :class => "form-control"%>
+        </div>
+        <button type="submit" class="btn btn-default" style="color: #fff; background-color: #000; border: 1px solid #fff;">Search</button>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+         <% if signed_in? %>
+        <li><a href="/posters/new" class="btn btn-default postadnavbtn">Post an Ad</a></li>
+        <% else %>
+         <li><a href="/users/sign_up" class="btn btn-default postadnavbtn">Post an Ad</a></li>
+        <% end %>
+        <% if signed_in? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" style="color: white;" aria-expanded="false"><strong>Account</strong> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">My Ads</a></li>
+            <li><a href="#">Favorite ads</a></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+    </nav>
+    <br>
+    <%= yield %>
+
+ 
+       
+</body>
+</html>

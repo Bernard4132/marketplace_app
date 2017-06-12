@@ -1,0 +1,31 @@
+<style type="text/css">
+
+.bnatin{
+	text-align: center;
+}
+
+.demfiknow{
+	text-align: center;
+}
+
+</style>
+<br>
+<br>
+<br>
+<p id="notice"><%= notice %></p>
+
+<h1 class="bnatin">
+  <strong><%= @category.name %></strong>
+</h1>
+<p class="demfiknow"> Products in <%= @category.name %> category </p>
+
+<div class="container">
+
+<div class="row adiseer">
+
+<%= render partial: @category.posters %>
+
+</div>
+
+</div>
+

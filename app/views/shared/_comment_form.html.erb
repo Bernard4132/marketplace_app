@@ -1,0 +1,8 @@
+
+   
+<%= form_for ([@poster, @poster.comments.build]) do |f| %>
+<textarea id="comment_body" name="comment[body]" class="form-control"  placeholder="Post a comment!" rows="3"></textarea>
+                    <div class="text-right" style="margin-top: 10px;">
+                        <button class="btn btn-success" type="submit">Leave a Review</button>
+                    </div>
+<% end %>
