@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
     @posters = Poster.search(title_or_description_cont: q).result
   end
 
+  
+
   protected
 
   def configure_permitted_parameters
