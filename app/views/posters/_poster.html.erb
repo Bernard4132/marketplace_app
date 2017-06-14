@@ -29,7 +29,16 @@
                                 <p>
                                     <span class="glyphicon glyphicon-star"></span>
                                 </p>
+                                <p>
+                                <% if current_user.admin? %>
                                 <%= link_to 'Destroy', poster, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                <% end %> | 
+                                <% if poster.approved? %>
+                                <strong>Approved</strong>
+                                <% else %>
+                                <strong>Unaproved</strong>
+                                <% end %>
+                              </p>
                             </div>
                         </div>
                     </div>

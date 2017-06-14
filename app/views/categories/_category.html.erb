@@ -1,4 +1,4 @@
 <p class="list-group-item">
   
-  <%= link_to category.name, category %>
+  <%= link_to category.name, category %> <strong>|</strong> <% if current_user.admin? %> <%= link_to 'delete', category, method: :delete, data: { confirm: 'Are you sure?' } %> <% end %>
 </p>

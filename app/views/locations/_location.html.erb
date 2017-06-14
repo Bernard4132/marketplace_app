@@ -1,4 +1,4 @@
 <p class="list-group-item">
   
-  <%= link_to location.address, location %>
+  <%= link_to location.address, location %> <strong>|</strong> <% if current_user.admin? %> <%= link_to 'delete', location, method: :delete, data: { confirm: 'Are you sure?' } %> <% end %>
 </p>

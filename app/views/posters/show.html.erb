@@ -107,8 +107,10 @@
     <br>
     <br>
     <br>
+    <br>
     <!-- Page Content -->
     <div class="container">
+
 
         <div class="row">
 
@@ -200,6 +202,9 @@
             </div>
 
         </div>
+        <% if @poster.approved? == false %>
+      <%= link_to 'Approve Ad', approve_poster_path(@poster), method: :post, :class => "btn btn-warning pull-right", :style => "margin-bottom: 50px;" %>
+        <% end %>
 
     </div>
    

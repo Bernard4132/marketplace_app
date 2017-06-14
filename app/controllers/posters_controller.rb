@@ -5,7 +5,7 @@ class PostersController < ApplicationController
   # GET /posters
   # GET /posters.json
   def index
-    @posters = Poster.all
+    @posters = Poster.where(approved: true).all
     @categories = Category.all
     @locations = Location.all
   end
@@ -25,6 +25,13 @@ class PostersController < ApplicationController
   def edit
     @poster.photos.new
   end
+
+def approve
+  @poster = Poster.find(params[:id])
+  @poster.update(approved: true)
+  redirect_to "/dashboard"
+  flash[:notice] = 'Poster has been approved'
+end
 
   # POST /posters
   # POST /posters.json
