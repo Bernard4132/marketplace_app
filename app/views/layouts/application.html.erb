@@ -86,12 +86,17 @@ font-size: 18px;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
+    <% if signed_in? %>
        <a class="navbar-toggle collapsed"  href="/posters/new" aria-expanded="false">
         <span class="btn btn-warning" style="position: relative; top: -10px;">Post Ad</span>
       </a>
+    <% else %>
+    <a class="navbar-toggle collapsed"  href="/users/sign_up" aria-expanded="false">
+        <span class="btn btn-warning" style="position: relative; top: -10px;">Post Ad</span>
+      </a>
+    <% end %>
 
-      <a class="navbar-brand" href="/" style="font-family: 'Pacifico', cursive; color: white; font-size: 25px;">Market Circle</a>
+      <a class="navbar-brand" href="/" style="font-family: 'Pacifico', cursive; color: white; font-size: 25px;">Boom Gh</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
