@@ -18,11 +18,11 @@
                         <div class="thumbnail">
                           <% if signed_in? %>
                           <p class="pull-right">
-                                <%= link_to 'Favorite', favorite_poster_path(poster), method: :post, :class => "btn btn-info", :style => "margin-top: 10px; margin-right: 10px;" %>
+                                <%= link_to 'Favourite', favorite_poster_path(poster), method: :post, :class => "btn btn-info", :style => "margin-top: 10px; margin-right: 10px;" %>
                               </p>
                           <% else %>
                           <p class="pull-right">
-                            <a href="/users/sign_in" class="btn btn-info" style="margin-top: 10px; margin-right: 10px;"></a>
+                            <a href="/users/sign_in" class="btn btn-info" style="margin-top: 10px; margin-right: 10px;">Favourite</a>
                               </p>
                           <% end %>
                             <br>
