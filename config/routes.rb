@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   resources :categories
 
   devise_for :users
+  resources :users, :only => [:show, :index]
 
  
 
   resources :posters do
     member { post :approve }
+    member { post :favorite }
   	resources :comments
   end
 

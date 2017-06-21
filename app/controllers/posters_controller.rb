@@ -33,6 +33,16 @@ def approve
   flash[:notice] = 'Poster has been approved'
 end
 
+  def favorite
+  @poster = Poster.find(params[:id])
+  current_user.set_mark :favorite, @poster
+  flash[:notice] = 'Added to favorites'
+   respond_to do |format|
+    format.html {redirect_to :back}
+      format.js 
+    end
+end
+
   # POST /posters
   # POST /posters.json
   def create
@@ -92,6 +102,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def poster_params
-      params.require(:poster).permit(:title, :description, :price, :negotiate, category_ids:[], location_ids:[], :photos_attributes => [:posterimage])
+      params.require(:poster).permit(:title, :description, :company, :phone1, :phone2, :price, :negotiate, category_ids:[], location_ids:[], :photos_attributes => [:posterimage])
     end
 end

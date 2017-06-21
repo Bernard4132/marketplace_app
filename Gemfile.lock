@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/effektz/markable.git
+  revision: 716868ba3cca4d5ad26d406aecb4658961136ee8
+  specs:
+    markable (0.1.4)
+      rails (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -342,6 +349,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.5)
   jquery-rails
+  markable!
   mini_magick
   pg
   puma (~> 3.0)

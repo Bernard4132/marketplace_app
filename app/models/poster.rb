@@ -1,4 +1,6 @@
 class Poster < ApplicationRecord
+    
+    markable_as :favorite
 	belongs_to :user
 	has_many :comments
 	has_many :sections

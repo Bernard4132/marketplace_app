@@ -130,6 +130,7 @@ font-size: 18px;
             <li><a href="#">My Ads</a></li>
 
           -->
+          <li><%= link_to "My Ads", current_user %></li>
           <% if current_user.admin? %>
             <li><a href="/dashboard">Admin</a></li>
           <% end %>
@@ -146,6 +147,9 @@ font-size: 18px;
 
     </nav>
     <br>
+    <br>
+    <br>
+    <%= render partial: "shared/flash_messages", flash: flash %> 
     <%= yield %>
 
  

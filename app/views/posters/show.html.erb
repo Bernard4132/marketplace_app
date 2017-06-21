@@ -128,9 +128,11 @@
                 <div class="list-group">
                   
                     <a href="#" class="list-group-item"><%= @poster.user.firstname if @poster.user.firstname.present? %></a>
-                    <a href="#" class="list-group-item"><%= @poster.user.email if @poster.user.firstname.present?%></a>
-                    <a href="#" class="list-group-item"><%= @poster.user.phone if @poster.user.firstname.present?%></a>
-                  
+                    <a href="#" class="list-group-item"><%= @poster.user.email if @poster.user.email.present?%></a>
+                    <a href="#" class="list-group-item"><%= @poster.user.phone if @poster.user.phone.present?%></a>
+                    <a href="#" class="list-group-item"><%= @poster.company if @poster.company.present? %></a>
+                    <a href="#" class="list-group-item"><%= @poster.phone1 if @poster.phone1.present?%></a>
+                    <a href="#" class="list-group-item"><%= @poster.phone2 if @poster.phone2.present?%></a>
                 </div>
             </div>
 

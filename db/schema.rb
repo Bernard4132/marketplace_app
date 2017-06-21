@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613172426) do
+ActiveRecord::Schema.define(version: 20170616190059) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20170613172426) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "marks", force: :cascade do |t|
+    t.string   "marker_type"
+    t.integer  "marker_id"
+    t.string   "markable_type"
+    t.integer  "markable_id"
+    t.string   "mark",          limit: 128
+    t.datetime "created_at"
+    t.index ["markable_id", "markable_type", "mark"], name: "index_marks_on_markable_id_and_markable_type_and_mark"
+    t.index ["marker_id", "marker_type", "mark"], name: "index_marks_on_marker_id_and_marker_type_and_mark"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.integer  "poster_id"
     t.datetime "created_at",  null: false
@@ -52,6 +63,9 @@ ActiveRecord::Schema.define(version: 20170613172426) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "approved",    default: false
+    t.string   "company"
+    t.string   "phone1"
+    t.string   "phone2"
   end
 
   create_table "sections", force: :cascade do |t|
