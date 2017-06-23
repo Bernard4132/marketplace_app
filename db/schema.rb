@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616190059) do
+ActiveRecord::Schema.define(version: 20170623141211) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20170616190059) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "poster_id"
-    t.string   "location_id"
+    t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
