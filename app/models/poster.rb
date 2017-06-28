@@ -5,6 +5,8 @@ class Poster < ApplicationRecord
 	has_many :comments
 	has_many :sections
     has_many :categories, :through => :sections
+    has_many :connections
+  has_many :areas, through: :connections
     has_many :taggings
 	has_many :locations, :through => :taggings
 	has_many :photos

@@ -9,6 +9,9 @@ Rails.application.config.assets.precompile += %w( swiper.css )
 Rails.application.config.assets.precompile += %w( swiper.js )
 Rails.application.config.assets.precompile += %w( jssor.slider-24.1.5.min.js )
 
+Rails.application.config.assets.precompile += %w( select2.full.min.js )
+Rails.application.config.assets.precompile += %w( select2.min.css )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

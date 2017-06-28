@@ -102,6 +102,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def poster_params
-      params.require(:poster).permit(:title, :description, :company, :phone1, :phone2, :price, :negotiate, category_ids:[], location_ids:[], :photos_attributes => [:posterimage])
+      params.require(:poster).permit(:title, :description, :company, :phone1, :phone2, :price, :negotiate, :area_ids, :category_ids, :location_ids, :photos_attributes => [:posterimage])
     end
 end

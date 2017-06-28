@@ -1,0 +1,40 @@
+<style type="text/css">
+
+.remedy{
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-family: 'Raleway', sans-serif;
+}
+
+</style>
+
+<br>
+<br>
+
+<h1 class="remedy">New Area</h1>
+
+<%= render 'form', area: @area %>
+
+<div class="container">
+	<div class="col-lg-12">
+		<h1>Areas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @areas  %> 
+  </tbody>
+</table>
+	</div>
+</div>
+<br>
+<br>
+<br>

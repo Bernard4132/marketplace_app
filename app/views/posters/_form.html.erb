@@ -18,17 +18,24 @@
   <% end %>
 
   <div class="form-group">
-    <label>Choose category</label><br>
+    <label>Select category:</label><br>
    <%= f.collection_select :category_ids, Category.all, :id, :name, {prompt: "Select Category"}, 
-    {:multiple => true, :required => true, class: "selectpicker"} %>
+    {:required => true, class: "select", style: "width: 100%;"} %>
   </div>
    
      <div class="form-group">
-      <label>Select your location</label><br>
-    <%= f.collection_select :location_ids, Location.all, :id, :address, {prompt: "Select Location"}, 
-    {:multiple => true, :required => true, class: "selectpicker"} %>
+      <label>Select Region:</label><br>
+    <%= f.collection_select :location_ids, Location.all, :id, :address, {prompt: "Select Region"}, 
+    {:required => true, class: "select", style: "width: 100%;"} %>
   </div>
-    
+
+
+ <div class="form-group">
+      <label>Select Area:</label><br>
+  <%= f.grouped_collection_select :area_ids, Location.order(:address), :areas, :address, :id, :name,  
+options = {}, html_options = {:class => "select", style: "width: 100%;"} %>
+   </div>
+
     
      <div class="form-group">
     <%= f.label :title %>
@@ -91,17 +98,36 @@
 </div>
 </div>
 </div>
+<br>
+<br>
+<br>
 
 
 <script type="text/javascript">
 
 $( document ).ready(function() {
- 
- $('.selectpicker').selectpicker({
-  size: 4
-});
-
+ $('.select').select2();
 });
 
 
+</script>
+
+<script>
+jQuery(function() {
+  var areas;
+  areas = $('#poster_area_ids').html();
+  return $('#poster_location_ids').change(function() {
+    var escaped_location, options, location;
+    location = $('#poster_location_ids :selected').text();
+    escaped_location = location.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+    options = $(areas).filter("optgroup[label='" + escaped_location + "']").html();
+    if (options) {
+      $('#poster_area_ids').html(options);
+      return $('#poster_area_ids').parent().show();
+    } else {
+      $('#poster_area_ids').empty();
+      
+    }
+  });
+});
 </script>
