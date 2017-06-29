@@ -1,3 +1,4 @@
+<% if current_user.admin? %>
 
 <style type="text/css">
 .dashcreator{
@@ -97,3 +98,10 @@
 
 	</div>
 </div>
+
+<% else %>
+
+<h4 style="text-align">Unauthorized access for this User.</h4>
+
+<% end %>
+
