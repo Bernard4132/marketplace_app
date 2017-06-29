@@ -36,7 +36,7 @@
                             <div class="ratings">
                                 <p class="pull-right"><%= poster.comments.count %> coments</p>
                                 <p>
-                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span style="color: #999999; font-weight: 500; font-size: 11px;"><%= time_ago_in_words(poster.created_at) %> ago</span>
                                 </p>
                                 <p>
                                   <% if signed_in? %>

@@ -13,7 +13,7 @@
 <br>
 
 <h1 class="remedy">New Area</h1>
-
+<% if current_user.admin? %>
 <%= render 'form', area: @area %>
 
 <div class="container">
@@ -38,3 +38,6 @@
 <br>
 <br>
 <br>
+<% else %>
+<h4 style="text-align: center;"> User Not Authorized to take this action. </h4>
+<% end %>

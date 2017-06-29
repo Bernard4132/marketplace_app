@@ -183,12 +183,7 @@
                     <div class="ratings" style="margin-left: 20px; margin-right: 20px;">
                         <p class="pull-right"><%= @poster.comments.count %> reviews</p>
                         <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 stars
+                            <span style="color: #999999; font-weight: 500; font-size: 14px;"><%= time_ago_in_words(@poster.created_at) %> ago</span>
                         </p>
                     </div>
                 </div>
