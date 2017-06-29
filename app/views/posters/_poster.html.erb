@@ -41,12 +41,12 @@
                                 <p>
                                   <% if signed_in? %>
                                 <% if current_user.admin? || poster.user == current_user %>
-                                <%= link_to 'delete ad', poster, method: :delete, data: { confirm: 'Are you sure?' } %> |  <%= link_to 'edit ad', edit_poster_path(poster) %>
-                                <% end %> | 
+                                <%= link_to 'delete ad', poster, method: :delete, data: { confirm: 'Are you sure?' } %> |  <%= link_to 'edit ad', edit_poster_path(poster) %> |
+                                <% end %> 
                                 <% if poster.approved? %>
-                                <strong>Approved</strong>
+                                <strong> Approved</strong>
                                 <% else %>
-                                <strong>Unaproved</strong>
+                                <strong> Unaproved</strong>
                                 <% end %>
                                 <% end %>
                               </p>
