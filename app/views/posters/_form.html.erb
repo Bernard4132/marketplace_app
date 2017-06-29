@@ -39,17 +39,17 @@ options = {}, html_options = {:class => "select", style: "width: 100%;"} %>
     
      <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, :class => "form-control" %>
+    <%= f.text_field :title, :class => "form-control", :placeholder => "Post Title" %>
   </div>
 
   <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, :class => "form-control", :rows => "5" %>
+    <%= f.text_area :description, :class => "form-control", :rows => "5", :placeholder => "Post Description" %>
   </div>
 
   <div class="form-group">
     <%= f.label :price %>
-    <%= f.number_field :price, :class => "form-control" %>
+    <%= f.number_field :price, :class => "form-control", :placeholder => "Price" %>
   </div>
 
   <div class="form-group">
@@ -75,17 +75,22 @@ options = {}, html_options = {:class => "select", style: "width: 100%;"} %>
 <div style="background-color: white; border-radius: 10px; padding: 20px;">
 <div class="form-group">
     <label>Company Name</label>
-    <%= f.text_field :company, :class => "form-control" %>
+    <%= f.text_field :company, :class => "form-control", :placeholder => "Company Name" %>
+  </div>
+
+  <div class="form-group">
+    <label>Location</label>
+    <%= f.text_field :place, :class => "form-control", :placeholder => "Company Location" %>
   </div>
 
 <div class="form-group">
     <label>Phone Number (1)</label>
-    <%= f.text_field :phone1, :class => "form-control" %>
+    <%= f.text_field :phone1, :class => "form-control", :placeholder => "Phone number 1" %>
   </div>
 
 <div class="form-group">
     <label>Phone number (2)</label>
-    <%= f.text_field :phone2, :class => "form-control" %>
+    <%= f.text_field :phone2, :class => "form-control", :placeholder => "Phone number 2" %>
   </div>
 
 </div>

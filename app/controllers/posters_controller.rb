@@ -48,7 +48,7 @@ end
   def create
     @poster = Poster.new(poster_params)
     @poster.user = current_user
-
+    flash[:notice] = 'Your post has been submitted for review.'
     respond_to do |format|
       if @poster.save
         if params[:photos_attributes]
@@ -56,7 +56,7 @@ end
             @poster.photos.create(posterimage: photo[:posterimage])
           end
         end
-        format.html { redirect_to @poster, notice: 'Poster was successfully created.' }
+        format.html { redirect_to '/', notice: 'Poster was successfully created.' }
         format.json { render :show, status: :created, location: @poster }
       else
         format.html { render :new }
@@ -89,7 +89,7 @@ end
   def destroy
     @poster.destroy
     respond_to do |format|
-      format.html { redirect_to posters_url, notice: 'Poster was successfully destroyed.' }
+      format.html { redirect_to '/', notice: 'Poster was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -102,6 +102,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def poster_params
-      params.require(:poster).permit(:title, :description, :company, :phone1, :phone2, :price, :negotiate, :area_ids, :category_ids, :location_ids, :photos_attributes => [:posterimage])
+      params.require(:poster).permit(:title, :description, :company, :place, :phone1, :phone2, :price, :negotiate, :area_ids, :category_ids, :location_ids, :photos_attributes => [:posterimage])
     end
 end

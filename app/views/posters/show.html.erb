@@ -119,20 +119,38 @@
                   <p class="lead"><strong>Additional details</strong></p>
                 <div class="list-group">
                   
-                    
+                    <% if @poster.all_categories.present? %>
                     <a href="#" class="list-group-item"><%= @poster.all_categories %></a>
-                  
+                    <% end %>
+                    <% if @poster.locations.first.address.present? %>
+                    <a href="#" class="list-group-item"><%= @poster.locations.first.address %></a>
+                    <% end %>
                 </div>
 
                 <p class="lead"><strong>Contact Seller</strong></p>
                 <div class="list-group">
-                  
-                    <a href="#" class="list-group-item"><%= @poster.user.firstname if @poster.user.firstname.present? %></a>
-                    <a href="#" class="list-group-item"><%= @poster.user.email if @poster.user.email.present?%></a>
-                    <a href="#" class="list-group-item"><%= @poster.user.phone if @poster.user.phone.present?%></a>
-                    <a href="#" class="list-group-item"><%= @poster.company if @poster.company.present? %></a>
-                    <a href="#" class="list-group-item"><%= @poster.phone1 if @poster.phone1.present?%></a>
-                    <a href="#" class="list-group-item"><%= @poster.phone2 if @poster.phone2.present?%></a>
+                    <% if @poster.user.firstname.present? %>
+
+                    <a href="#" class="list-group-item"><span><strong>Name</strong></span><br><%= @poster.user.firstname %></a>
+                    <% end %>
+                    <%  if @poster.user.email.present? %>
+                    <a href="#" class="list-group-item"><span><strong>Email</strong></span><br><%= @poster.user.email %></a>
+                    <% end %>
+                    <%  if @poster.company.present? %>
+                    <a href="#" class="list-group-item"><span><strong>Company name</strong></span><br><%= @poster.company %></a>
+                    <% end %>
+                    <%  if @poster.place.present? %>
+                    <a href="#" class="list-group-item"><span><strong>Location</strong></span><br><%= @poster.place %></a>
+                    <% end %>
+                    <% if @poster.user.phone.present? %>
+                    <a href="#" class="list-group-item"><span><strong>Phone number</strong></span><br><%= @poster.user.phone %></a>
+                    <% end %>
+                    <%  if @poster.phone1.present? %>
+                    <a href="#" class="list-group-item"><span><strong>Phone number</strong></span><br><%= @poster.phone1 %></a>
+                    <% end %>
+                    <% if @poster.phone2.present? %>
+                    <a href="#" class="list-group-item"><span><strong>Phone number</strong></span><br><%= @poster.phone2 %></a>
+                    <% end %>
                 </div>
             </div>
 
