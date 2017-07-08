@@ -8,4 +8,8 @@ def dashboard
     @locations = Location.all
 end
 
+def aboutus
+	
+end
+
 end

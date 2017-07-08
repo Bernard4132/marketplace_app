@@ -1,3 +1,11 @@
+    <title>BoomGh | <%= @poster.title %></title>
+    <meta name="description" content="<%= @poster.description %>">
+    <meta property="og:title" content="BoomGh | <%= @poster.title %>">
+      <meta property="og:description" content="<%= @poster.description %>">
+      <meta property="og:url" content="http://www.boomgh.com<%= url_for(@poster) %>" />
+     <meta property="og:image" content="<%= @poster.photos.first.posterimage_url(:cover) %>" />
+     <!-- Place this tag in your head or just before your close body tag. -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script type="text/javascript">
         jssor_1_slider_init = function() {
 
@@ -108,6 +116,14 @@
     <br>
     <br>
     <br>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=1682387115327808";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <!-- Page Content -->
     <div class="container">
 
@@ -201,7 +217,15 @@
                     <div class="ratings" style="margin-left: 20px; margin-right: 20px;">
                         <p class="pull-right"><%= @poster.comments.count %> reviews</p>
                         <p>
-                            <span style="color: #999999; font-weight: 500; font-size: 14px;"><%= time_ago_in_words(@poster.created_at) %> ago</span>
+                            <span style="color: #999999; font-weight: 500; font-size: 14px;"><%= @poster.created_at.strftime("Posted on %m/%d/%Y") %></span>
+                        </p>
+                        <p>
+                       <div class="fb-share-button" data-href="http://www.boomgh.com<%= url_for(@poster) %>" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Share</a></div>
+                       <span>  </span>
+                       <br>
+                       <br>
+<!-- Place this tag where you want the share button to render. -->
+<div class="g-plus" data-action="share" data-height="24"></div>
                         </p>
                     </div>
                 </div>
