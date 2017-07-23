@@ -141,6 +141,9 @@
                     <% if @poster.locations.first.address.present? %>
                     <a href="#" class="list-group-item"><%= @poster.locations.first.address %></a>
                     <% end %>
+                    <% if @poster.areas.first.name.present? %>
+                    <a href="#" class="list-group-item"><%= @poster.areas.first.name %></a>
+                    <% end %>
                 </div>
 
                 <p class="lead"><strong>Contact Seller</strong></p>
