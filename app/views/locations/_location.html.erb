@@ -1,4 +1,5 @@
 <p class="list-group-item">
   <i class="fa fa-angle-right" style="color: #e20d0d; font-weight: 700;" aria-hidden="true"></i>
   <%= link_to location.address, location, :style => "color: #e20d0d;" %><% if signed_in? && current_user.admin? %> <strong>|</strong> <%= link_to 'delete', location, method: :delete, data: { confirm: 'Are you sure?' } %> <% end %>
+  (<%= location.posters.count %>)
 </p>

@@ -75,7 +75,7 @@ end
             @poster.photos.create(posterimage: photo[:posterimage])
           end
         end
-        format.html { redirect_to @poster, notice: 'Poster was successfully updated.' }
+        format.html { redirect_to '/', notice: 'Poster was successfully updated.' }
         format.json { render :show, status: :ok, location: @poster }
       else
         format.html { render :edit }
