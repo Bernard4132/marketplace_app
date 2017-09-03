@@ -2,7 +2,7 @@
     <meta name="description" content="<%= @poster.description %>">
     <meta property="og:title" content="BoomGh | <%= @poster.title %>">
       <meta property="og:description" content="<%= @poster.description %>">
-      <meta property="og:url" content="http://www.boomgh.com<%= url_for(@poster) %>" />
+      <meta property="og:url" content="<%= poster_url(@poster) %>" />
        <% if @poster.photos.present? %>
      <meta property="og:image" content="<%= @poster.photos.first.posterimage_url(:cover) %>" />
      <% end %>
