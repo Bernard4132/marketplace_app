@@ -11,6 +11,7 @@ class Poster < ApplicationRecord
 	has_many :locations, :through => :taggings
 	has_many :photos
     accepts_nested_attributes_for :photos, :allow_destroy => true
+    default_scope -> { order('created_at DESC') }
 
 
 def all_categories

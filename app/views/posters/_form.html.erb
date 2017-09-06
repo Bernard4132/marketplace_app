@@ -31,20 +31,20 @@
 
 
  <div class="form-group">
-      <label>Select Area:</label><br>
+      <label>Select District:</label><br>
   <%= f.grouped_collection_select :area_ids, Location.order(:address), :areas, :address, :id, :name,  
 options = {}, html_options = {:class => "select", style: "width: 100%;"} %>
    </div>
 
     
      <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, :class => "form-control", :placeholder => "Post Title: Example, Apple Macbook pro for sale" %>
+   <label>Company Name</label>
+    <%= f.text_field :title, :class => "form-control", :placeholder => "Company name" %>
   </div>
 
   <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, :class => "form-control", :rows => "5", :placeholder => "Post Description: Example. Sharp Display Screen, 8gig ram etc " %>
+    <%= f.text_area :description, :class => "form-control", :rows => "5", :placeholder => "What do you do?" %>
   </div>
 
   <div class="form-group">
